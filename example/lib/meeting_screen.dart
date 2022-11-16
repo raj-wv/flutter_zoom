@@ -59,7 +59,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
                   // The basic Material Design action button.
                   return ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.blue, // background
+                      backgroundColor: Colors.blue, // background
                       onPrimary: Colors.white, // foreground
                     ),
                     onPressed: () => {
@@ -77,7 +77,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
                   // The basic Material Design action button.
                   return ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.blue, // background
+                      backgroundColor: Colors.blue, // background
                       onPrimary: Colors.white, // foreground
                     ),
                     onPressed: () => {
@@ -95,7 +95,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
                   // The basic Material Design action button.
                   return ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.blue, // background
+                      backgroundColor: Colors.blue, // background
                       onPrimary: Colors.white, // foreground
                     ),
                     onPressed: () => startMeetingNormal(context),
@@ -117,8 +117,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
       var result = false;
 
       if (Platform.isAndroid) {
-        result = status == "MEETING_STATUS_DISCONNECTING" ||
-            status == "MEETING_STATUS_FAILED";
+        result = status == "MEETING_STATUS_DISCONNECTING" || status == "MEETING_STATUS_FAILED";
       } else {
         result = status == "MEETING_STATUS_IDLE";
       }
@@ -126,22 +125,20 @@ class _MeetingWidgetState extends State<MeetingWidget> {
       return result;
     }
 
-    if (meetingIdController.text.isNotEmpty &&
-        meetingPasswordController.text.isNotEmpty) {
+    if (meetingIdController.text.isNotEmpty && meetingPasswordController.text.isNotEmpty) {
       ZoomOptions zoomOptions = ZoomOptions(
         domain: "zoom.us",
         appKey: "XKE4uWfeLwWEmh78YMbC6mqKcF8oM4YHTr9I", //API KEY FROM ZOOM
-        appSecret:
-            "bT7N61pQzaLXU6VLj9TVl7eYuLbqAiB0KAdb", //API SECRET FROM ZOOM
+        appSecret: "bT7N61pQzaLXU6VLj9TVl7eYuLbqAiB0KAdb", //API SECRET FROM ZOOM
       );
       var meetingOptions = ZoomMeetingOptions(
           userId: 'username',
 
           /// pass username for join meeting only --- Any name eg:- EVILRATT.
-          meetingId: "91292121069"/* meetingIdController.text */,
+          meetingId: "98542085094" /* meetingIdController.text */,
 
           /// pass meeting id for join meeting only
-          meetingPassword: "OGZCOUV6L2xNalRXc00vSllMcGh4QT09"/* meetingPasswordController.text */,
+          meetingPassword: "Sm8xb0tpbW9FcjIzdjYrRFpXU3J6dz09" /* meetingPasswordController.text */,
 
           /// pass meeting password for join meeting only
           disableDialIn: "true",
@@ -158,8 +155,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
         if (results[0] == 0) {
           zoom.onMeetingStatus().listen((status) {
             if (kDebugMode) {
-              print(
-                  "[Meeting Status Stream] : " + status[0] + " - " + status[1]);
+              print("[Meeting Status Stream] : " + status[0] + " - " + status[1]);
             }
             if (_isMeetingEnded(status[0])) {
               if (kDebugMode) {
@@ -175,20 +171,17 @@ class _MeetingWidgetState extends State<MeetingWidget> {
             timer = Timer.periodic(const Duration(seconds: 2), (timer) {
               zoom.meetingStatus(meetingOptions.meetingId!).then((status) {
                 if (kDebugMode) {
-                  print("[Meeting Status Polling] : " +
-                      status[0] +
-                      " - " +
-                      status[1]);
+                  print("[Meeting Status Polling] : " + status[0] + " - " + status[1]);
                 }
               });
             });
           });
         }
-      }).catchError((error) {
+      })/* .catchError((error) {
         if (kDebugMode) {
-          print("[Error Generated] : " + error);
+          print("[Error Generated] : " + error.toString());
         }
-      });
+      }) */;
     } else {
       if (meetingIdController.text.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -208,8 +201,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
       var result = false;
 
       if (Platform.isAndroid) {
-        result = status == "MEETING_STATUS_DISCONNECTING" ||
-            status == "MEETING_STATUS_FAILED";
+        result = status == "MEETING_STATUS_DISCONNECTING" || status == "MEETING_STATUS_FAILED";
       } else {
         result = status == "MEETING_STATUS_IDLE";
       }
@@ -219,10 +211,8 @@ class _MeetingWidgetState extends State<MeetingWidget> {
 
     ZoomOptions zoomOptions = ZoomOptions(
       domain: "zoom.us",
-      appKey:
-          "XKE4uWfeLwWEmh78YMbC6mqKcF8oM4YHTr9I", //API KEY FROM ZOOM -- SDK KEY
-      appSecret:
-          "bT7N61pQzaLXU6VLj9TVl7eYuLbqAiB0KAdb", //API SECRET FROM ZOOM -- SDK SECRET
+      appKey: "XKE4uWfeLwWEmh78YMbC6mqKcF8oM4YHTr9I", //API KEY FROM ZOOM -- SDK KEY
+      appSecret: "bT7N61pQzaLXU6VLj9TVl7eYuLbqAiB0KAdb", //API SECRET FROM ZOOM -- SDK SECRET
     );
     var meetingOptions = ZoomMeetingOptions(
         userId: 'evilrattdeveloper@gmail.com', //pass host email for zoom
@@ -252,16 +242,14 @@ class _MeetingWidgetState extends State<MeetingWidget> {
           if (status[0] == "MEETING_STATUS_INMEETING") {
             zoom.meetinDetails().then((meetingDetailsResult) {
               if (kDebugMode) {
-                print("[MeetingDetailsResult] :- " +
-                    meetingDetailsResult.toString());
+                print("[MeetingDetailsResult] :- " + meetingDetailsResult.toString());
               }
             });
           }
         });
         zoom.startMeeting(meetingOptions).then((loginResult) {
           if (kDebugMode) {
-            print(
-                "[LoginResult] :- " + loginResult[0] + " - " + loginResult[1]);
+            print("[LoginResult] :- " + loginResult[0] + " - " + loginResult[1]);
           }
           if (loginResult[0] == "SDK ERROR") {
             //SDK INIT FAILED
@@ -272,8 +260,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
           } else if (loginResult[0] == "LOGIN ERROR") {
             //LOGIN FAILED - WITH ERROR CODES
             if (kDebugMode) {
-              if (loginResult[1] ==
-                  ZoomError.ZOOM_AUTH_ERROR_WRONG_ACCOUNTLOCKED) {
+              if (loginResult[1] == ZoomError.ZOOM_AUTH_ERROR_WRONG_ACCOUNTLOCKED) {
                 print("Multiple Failed Login Attempts");
               }
               print((loginResult[1]).toString());
@@ -304,8 +291,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
       var result = false;
 
       if (Platform.isAndroid) {
-        result = status == "MEETING_STATUS_DISCONNECTING" ||
-            status == "MEETING_STATUS_FAILED";
+        result = status == "MEETING_STATUS_DISCONNECTING" || status == "MEETING_STATUS_FAILED";
       } else {
         result = status == "MEETING_STATUS_IDLE";
       }
@@ -315,10 +301,8 @@ class _MeetingWidgetState extends State<MeetingWidget> {
 
     ZoomOptions zoomOptions = ZoomOptions(
       domain: "zoom.us",
-      appKey:
-          "XKE4uWfeLwWEmh78YMbC6mqKcF8oM4YHTr9I", //API KEY FROM ZOOM -- SDK KEY
-      appSecret:
-          "bT7N61pQzaLXU6VLj9TVl7eYuLbqAiB0KAdb", //API SECRET FROM ZOOM -- SDK SECRET
+      appKey: "XKE4uWfeLwWEmh78YMbC6mqKcF8oM4YHTr9I", //API KEY FROM ZOOM -- SDK KEY
+      appSecret: "bT7N61pQzaLXU6VLj9TVl7eYuLbqAiB0KAdb", //API SECRET FROM ZOOM -- SDK SECRET
     );
     var meetingOptions = ZoomMeetingOptions(
         userId: 'evilrattdeveloper@gmail.com', //pass host email for zoom
@@ -349,8 +333,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
           if (status[0] == "MEETING_STATUS_INMEETING") {
             zoom.meetinDetails().then((meetingDetailsResult) {
               if (kDebugMode) {
-                print("[MeetingDetailsResult] :- " +
-                    meetingDetailsResult.toString());
+                print("[MeetingDetailsResult] :- " + meetingDetailsResult.toString());
               }
             });
           }
