@@ -40,11 +40,11 @@ flutter:
     platforms:
       android:
         package: com.wv.flutter_zoom
-        pluginClass: FlutterZoomPlugin
+        pluginClass: FlutterZoomSdkPlugin
       ios:
-        pluginClass: FlutterZoomPlugin
+        pluginClass: FlutterZoomSdkPlugin
       web:
-        pluginClass: FlutterZoomWeb
+        pluginClass: ZoomViewWeb
         fileName: flutter_zoom_web.dart
 
   # To add assets to your plugin package, add an assets section, like this:
