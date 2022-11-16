@@ -234,14 +234,12 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
     Map<String, String> options = methodCall.arguments();
 
     ZoomSDK zoomSDK = ZoomSDK.getInstance();
-    System.out.println("------->joinMeeting");
     if(!zoomSDK.isInitialized()) {
       System.out.println("Not initialized!!!!!!");
 
       result.success(false);
       return;
     }else{
-      System.out.println("------->initialized");
     }
 
     MeetingService meetingService = zoomSDK.getMeetingService();
@@ -264,9 +262,7 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
     params.displayName = options.get("userId");
     params.meetingNo = options.get("meetingId");
     params.password = options.get("meetingPassword");
-System.out.println("------->12345");
     meetingService.joinMeetingWithParams(context, params, opts);
-System.out.println("------->123456789");
     result.success(true);
   }
 

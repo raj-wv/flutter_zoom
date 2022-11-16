@@ -59,8 +59,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
                   // The basic Material Design action button.
                   return ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue, // background
-                      onPrimary: Colors.white, // foreground
+                      foregroundColor: Colors.white, backgroundColor: Colors.blue, // foreground
                     ),
                     onPressed: () => {
                       {joinMeeting(context)}
@@ -77,8 +76,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
                   // The basic Material Design action button.
                   return ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue, // background
-                      onPrimary: Colors.white, // foreground
+                      foregroundColor: Colors.white, backgroundColor: Colors.blue, // foreground
                     ),
                     onPressed: () => {
                       {startMeeting(context)}
@@ -95,8 +93,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
                   // The basic Material Design action button.
                   return ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue, // background
-                      onPrimary: Colors.white, // foreground
+                      foregroundColor: Colors.white, backgroundColor: Colors.blue, // foreground
                     ),
                     onPressed: () => startMeetingNormal(context),
                     child: const Text('Start Meeting With Meeting ID'),
@@ -177,11 +174,11 @@ class _MeetingWidgetState extends State<MeetingWidget> {
             });
           });
         }
-      })/* .catchError((error) {
+      }).catchError((error) {
         if (kDebugMode) {
           print("[Error Generated] : " + error.toString());
         }
-      }) */;
+      });
     } else {
       if (meetingIdController.text.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -197,6 +194,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
 
   //Start Meeting With Random Meeting ID ----- Emila & Password For Zoom is required.
   startMeeting(BuildContext context) {
+    debugPrint("sdsfdfd");
     bool _isMeetingEnded(String status) {
       var result = false;
 
@@ -209,18 +207,23 @@ class _MeetingWidgetState extends State<MeetingWidget> {
       return result;
     }
 
+    String zoomAccessTokenZAK =
+        'eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6InVvTlNtOEVNUjgtMWV5TDlaMk5Td3ciLCJpc3MiOiJ3ZWIiLCJzayI6IjAiLCJzdHkiOjEwMCwid2NkIjoiYXcxIiwiY2x0IjowLCJleHAiOjE2Njg1ODg4MTMsImlhdCI6MTY2ODU4MTYxMywiYWlkIjoiZkxXTUtmdVRRSGFlSkl3Mml2SWdkZyIsImNpZCI6IiJ9.yiOSXlcfPOoBoLm4umQxGlT8IBS6KZ2Z9DdBl9A8b2E';
     ZoomOptions zoomOptions = ZoomOptions(
       domain: "zoom.us",
-      appKey: "XKE4uWfeLwWEmh78YMbC6mqKcF8oM4YHTr9I", //API KEY FROM ZOOM -- SDK KEY
-      appSecret: "bT7N61pQzaLXU6VLj9TVl7eYuLbqAiB0KAdb", //API SECRET FROM ZOOM -- SDK SECRET
+      appKey: "4P0YpbhiPAYcdNw4YHezmjYaGtsdXUZRSsJa", //API KEY FROM ZOOM -- SDK KEY
+      appSecret: "iucCvQTjqfI14JDwbN9G0th1PD1shpbaxqgj", //API SECRET FROM ZOOM -- SDK SECRET
     );
+    debugPrint('ZOOMOPTIONS: ${zoomOptions.appKey}');
     var meetingOptions = ZoomMeetingOptions(
-        userId: 'evilrattdeveloper@gmail.com', //pass host email for zoom
-        userPassword: 'Dlinkmoderm0641', //pass host password for zoom
+        userId: 'ezlbhse@scpulse.com', //pass host email for zoom
+        displayName: "RAJ",
+        userPassword: 'Raj@1997', //pass host password for zoom
         disableDialIn: "false",
         disableDrive: "false",
         disableInvite: "false",
         disableShare: "false",
+        zoomAccessToken: zoomAccessTokenZAK,
         disableTitlebar: "false",
         viewOptions: "true",
         noAudio: "false",
