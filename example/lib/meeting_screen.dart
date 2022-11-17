@@ -208,7 +208,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
     }
 
     String zoomAccessTokenZAK =
-        'eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6InVvTlNtOEVNUjgtMWV5TDlaMk5Td3ciLCJpc3MiOiJ3ZWIiLCJzayI6IjAiLCJzdHkiOjEwMCwid2NkIjoiYXcxIiwiY2x0IjowLCJleHAiOjE2Njg1ODg4MTMsImlhdCI6MTY2ODU4MTYxMywiYWlkIjoiZkxXTUtmdVRRSGFlSkl3Mml2SWdkZyIsImNpZCI6IiJ9.yiOSXlcfPOoBoLm4umQxGlT8IBS6KZ2Z9DdBl9A8b2E';
+        'eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6InVvTlNtOEVNUjgtMWV5TDlaMk5Td3ciLCJpc3MiOiJ3ZWIiLCJzayI6IjAiLCJzdHkiOjEwMCwid2NkIjoiYXcxIiwiY2x0IjowLCJleHAiOjE2Njg2ODY3MTksImlhdCI6MTY2ODY3OTUxOSwiYWlkIjoiZkxXTUtmdVRRSGFlSkl3Mml2SWdkZyIsImNpZCI6IiJ9.urF1mfG8QHhv-wqFMVVBWdNdm9_3f5McPSrHGb9_M1g';
     ZoomOptions zoomOptions = ZoomOptions(
       domain: "zoom.us",
       appKey: "4P0YpbhiPAYcdNw4YHezmjYaGtsdXUZRSsJa", //API KEY FROM ZOOM -- SDK KEY
@@ -216,6 +216,8 @@ class _MeetingWidgetState extends State<MeetingWidget> {
     );
     debugPrint('ZOOMOPTIONS: ${zoomOptions.appKey}');
     var meetingOptions = ZoomMeetingOptions(
+        meetingId: "5740397058" /* meetingIdController.text */,
+        // meetingPassword: "R3hUVHNBanN3ZjlEdE9kZ3RmRmMxdz09" /* meetingPasswordController.text */,
         userId: 'ezlbhse@scpulse.com', //pass host email for zoom
         displayName: "RAJ",
         userPassword: 'Raj@1997', //pass host password for zoom
@@ -224,6 +226,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
         disableInvite: "false",
         disableShare: "false",
         zoomAccessToken: zoomAccessTokenZAK,
+        zoomToken: zoomAccessTokenZAK,
         disableTitlebar: "false",
         viewOptions: "true",
         noAudio: "false",

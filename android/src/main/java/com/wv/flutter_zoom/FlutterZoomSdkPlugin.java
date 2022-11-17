@@ -269,10 +269,10 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
   // Basic Start Meeting Function called on startMeeting triggered via login function
   private void startMeeting(MethodCall methodCall, MethodChannel.Result result) {
 
+    this.pendingResult = result;
     Map<String, String> options = methodCall.arguments();
 
     ZoomSDK zoomSDK = ZoomSDK.getInstance();
-
     if(!zoomSDK.isInitialized()) {
       System.out.println("Not initialized!!!!!!");
       sendReply(Arrays.asList("SDK ERROR", "001"));
@@ -305,7 +305,7 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
       params.displayName = options.get("displayName");
       params.userType = MeetingService.USER_TYPE_API_USER;
       params.zoomAccessToken = options.get("zoomAccessToken");
-      meetingService.startMeetingWithParams(context, params, opts);
+      int resultMeetingStart = meetingService.startMeetingWithParams(context, params, opts);
       inMeetingService = zoomSDK.getInMeetingService();
       sendReply(Arrays.asList("MEETING SUCCESS", "200"));
   }
