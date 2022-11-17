@@ -57,10 +57,10 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
     context = flutterPluginBinding.getApplicationContext();
-    methodChannel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "com.wv/zoom_sdk");
+    methodChannel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "com.wv/flutter_zoom");
     methodChannel.setMethodCallHandler(this);
 
-    meetingStatusChannel = new EventChannel(flutterPluginBinding.getBinaryMessenger(), "com.wv/zoom_sdk_event_stream");
+    meetingStatusChannel = new EventChannel(flutterPluginBinding.getBinaryMessenger(), "com.wv/flutter_zoom_event_stream");
   }
 
   @Override
@@ -234,14 +234,12 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
     Map<String, String> options = methodCall.arguments();
 
     ZoomSDK zoomSDK = ZoomSDK.getInstance();
-    System.out.println("------->joinMeeting");
     if(!zoomSDK.isInitialized()) {
       System.out.println("Not initialized!!!!!!");
 
       result.success(false);
       return;
     }else{
-      System.out.println("------->initialized");
     }
 
     MeetingService meetingService = zoomSDK.getMeetingService();
@@ -264,19 +262,17 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
     params.displayName = options.get("userId");
     params.meetingNo = options.get("meetingId");
     params.password = options.get("meetingPassword");
-System.out.println("------->12345");
     meetingService.joinMeetingWithParams(context, params, opts);
-System.out.println("------->123456789");
     result.success(true);
   }
 
   // Basic Start Meeting Function called on startMeeting triggered via login function
   private void startMeeting(MethodCall methodCall, MethodChannel.Result result) {
 
+    this.pendingResult = result;
     Map<String, String> options = methodCall.arguments();
 
     ZoomSDK zoomSDK = ZoomSDK.getInstance();
-
     if(!zoomSDK.isInitialized()) {
       System.out.println("Not initialized!!!!!!");
       sendReply(Arrays.asList("SDK ERROR", "001"));
@@ -309,7 +305,7 @@ System.out.println("------->123456789");
       params.displayName = options.get("displayName");
       params.userType = MeetingService.USER_TYPE_API_USER;
       params.zoomAccessToken = options.get("zoomAccessToken");
-      meetingService.startMeetingWithParams(context, params, opts);
+      int resultMeetingStart = meetingService.startMeetingWithParams(context, params, opts);
       inMeetingService = zoomSDK.getInMeetingService();
       sendReply(Arrays.asList("MEETING SUCCESS", "200"));
   }

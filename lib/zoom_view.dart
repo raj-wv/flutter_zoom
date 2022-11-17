@@ -3,10 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_zoom/zoom_platform_view.dart';
 
 class ZoomView extends ZoomPlatform {
-  final MethodChannel channel = const MethodChannel('com.wv/zoom_sdk');
+  final MethodChannel channel = const MethodChannel('com.wv/flutter_zoom');
 
   /// The event channel used to interact with the native platform.
-  final EventChannel eventChannel = const EventChannel('com.wv/zoom_sdk_event_stream');
+  final EventChannel eventChannel = const EventChannel('com.wv/flutter_zoom_event_stream');
 
   /// The event channel used to interact with the native platform init function
   @override
@@ -70,6 +70,9 @@ class ZoomView extends ZoomPlatform {
     var optionMap = <String, String?>{};
     optionMap.putIfAbsent("userId", () => options.userId);
     optionMap.putIfAbsent("userPassword", () => options.userPassword);
+    optionMap.putIfAbsent("zoomAccessToken", () => options.zoomAccessToken);
+    optionMap.putIfAbsent("zoomToken", () => options.zoomToken);
+    optionMap.putIfAbsent("meetingId", () => options.meetingId);
     optionMap.putIfAbsent("disableDialIn", () => options.disableDialIn);
     optionMap.putIfAbsent("disableDrive", () => options.disableDrive);
     optionMap.putIfAbsent("disableInvite", () => options.disableInvite);
@@ -77,6 +80,7 @@ class ZoomView extends ZoomPlatform {
     optionMap.putIfAbsent("disableTitlebar", () => options.disableTitlebar);
     optionMap.putIfAbsent("viewOptions", () => options.viewOptions);
     optionMap.putIfAbsent("noDisconnectAudio", () => options.noDisconnectAudio);
+    optionMap.putIfAbsent("noAudio", () => options.noAudio);
     optionMap.putIfAbsent("noAudio", () => options.noAudio);
 
     return await channel.invokeMethod<List>('login', optionMap).then<List>((List? value) => value ?? List.empty());
