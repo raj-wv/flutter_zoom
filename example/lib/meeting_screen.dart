@@ -121,7 +121,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
 
       return result;
     }
-
+//https://zoom.us/j/5740397058?pwd=R3hUVHNBanN3ZjlEdE9kZ3RmRmMxdz09
     if (meetingIdController.text.isNotEmpty && meetingPasswordController.text.isNotEmpty) {
       ZoomOptions zoomOptions = ZoomOptions(
         domain: "zoom.us",
@@ -132,10 +132,10 @@ class _MeetingWidgetState extends State<MeetingWidget> {
           userId: 'username',
 
           /// pass username for join meeting only --- Any name eg:- EVILRATT.
-          meetingId: "98542085094" /* meetingIdController.text */,
+          meetingId: "5740397058" /* meetingIdController.text */,
 
           /// pass meeting id for join meeting only
-          meetingPassword: "Sm8xb0tpbW9FcjIzdjYrRFpXU3J6dz09" /* meetingPasswordController.text */,
+          meetingPassword: "R3hUVHNBanN3ZjlEdE9kZ3RmRmMxdz09" /* meetingPasswordController.text */,
 
           /// pass meeting password for join meeting only
           disableDialIn: "true",
@@ -208,7 +208,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
     }
 
     String zoomAccessTokenZAK =
-        'eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6InVvTlNtOEVNUjgtMWV5TDlaMk5Td3ciLCJpc3MiOiJ3ZWIiLCJzayI6IjAiLCJzdHkiOjEwMCwid2NkIjoiYXcxIiwiY2x0IjowLCJleHAiOjE2Njg2ODY3MTksImlhdCI6MTY2ODY3OTUxOSwiYWlkIjoiZkxXTUtmdVRRSGFlSkl3Mml2SWdkZyIsImNpZCI6IiJ9.urF1mfG8QHhv-wqFMVVBWdNdm9_3f5McPSrHGb9_M1g';
+        'eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6InVvTlNtOEVNUjgtMWV5TDlaMk5Td3ciLCJpc3MiOiJ3ZWIiLCJzayI6IjAiLCJzdHkiOjEwMCwid2NkIjoiYXcxIiwiY2x0IjowLCJleHAiOjE2Njg3NzI3MTEsImlhdCI6MTY2ODc2NTUxMSwiYWlkIjoiZkxXTUtmdVRRSGFlSkl3Mml2SWdkZyIsImNpZCI6IiJ9.H49tXMDHDhfYG3N4ssd4lx3XUX0iAY9PEgNRyrs7uUA';
     ZoomOptions zoomOptions = ZoomOptions(
       domain: "zoom.us",
       appKey: "4P0YpbhiPAYcdNw4YHezmjYaGtsdXUZRSsJa", //API KEY FROM ZOOM -- SDK KEY
