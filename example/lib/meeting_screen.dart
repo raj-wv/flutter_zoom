@@ -208,7 +208,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
     }
 
     String zoomAccessTokenZAK =
-        'eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6InVvTlNtOEVNUjgtMWV5TDlaMk5Td3ciLCJpc3MiOiJ3ZWIiLCJzayI6IjAiLCJzdHkiOjEwMCwid2NkIjoiYXcxIiwiY2x0IjowLCJleHAiOjE2Njg3NzI3MTEsImlhdCI6MTY2ODc2NTUxMSwiYWlkIjoiZkxXTUtmdVRRSGFlSkl3Mml2SWdkZyIsImNpZCI6IiJ9.H49tXMDHDhfYG3N4ssd4lx3XUX0iAY9PEgNRyrs7uUA';
+        'eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6InVvTlNtOEVNUjgtMWV5TDlaMk5Td3ciLCJpc3MiOiJ3ZWIiLCJzayI6IjAiLCJzdHkiOjEwMCwid2NkIjoiYXcxIiwiY2x0IjowLCJleHAiOjE2NjkwMzY3NTIsImlhdCI6MTY2OTAyOTU1MiwiYWlkIjoiZkxXTUtmdVRRSGFlSkl3Mml2SWdkZyIsImNpZCI6IiJ9.mFwxxAcMNW7pxOLoZ8jQRugnIVkKwv-ug56xf4Ss_40';
     ZoomOptions zoomOptions = ZoomOptions(
       domain: "zoom.us",
       appKey: "4P0YpbhiPAYcdNw4YHezmjYaGtsdXUZRSsJa", //API KEY FROM ZOOM -- SDK KEY
