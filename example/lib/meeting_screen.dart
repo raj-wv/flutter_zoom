@@ -121,6 +121,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
 
       return result;
     }
+
 //https://zoom.us/j/5740397058?pwd=R3hUVHNBanN3ZjlEdE9kZ3RmRmMxdz09
     if (meetingIdController.text.isNotEmpty && meetingPasswordController.text.isNotEmpty) {
       ZoomOptions zoomOptions = ZoomOptions(
@@ -129,23 +130,27 @@ class _MeetingWidgetState extends State<MeetingWidget> {
         appSecret: "bT7N61pQzaLXU6VLj9TVl7eYuLbqAiB0KAdb", //API SECRET FROM ZOOM
       );
       var meetingOptions = ZoomMeetingOptions(
-          userId: 'username',
+        userId: 'username',
 
-          /// pass username for join meeting only --- Any name eg:- EVILRATT.
-          meetingId: "5740397058" /* meetingIdController.text */,
+        /// pass username for join meeting only --- Any name eg:- EVILRATT.
+        meetingId: "5740397058" /* meetingIdController.text */,
 
-          /// pass meeting id for join meeting only
-          meetingPassword: "R3hUVHNBanN3ZjlEdE9kZ3RmRmMxdz09" /* meetingPasswordController.text */,
+        /// pass meeting id for join meeting only
+        meetingPassword: "R3hUVHNBanN3ZjlEdE9kZ3RmRmMxdz09" /* meetingPasswordController.text */,
 
-          /// pass meeting password for join meeting only
-          disableDialIn: "true",
-          disableDrive: "true",
-          disableInvite: "true",
-          disableShare: "true",
-          disableTitlebar: "false",
-          viewOptions: "true",
-          noAudio: "false",
-          noDisconnectAudio: "false");
+        /// pass meeting password for join meeting only
+        disableDialIn: "true",
+        disableDrive: "true",
+        disableInvite: "true",
+        disableShare: "true",
+        disableTitlebar: "false",
+        viewOptions: "true",
+        noAudio: "false",
+        noDisconnectAudio: "false",
+        meetingViewOptions: ZoomMeetingOptions.NO_TEXT_PASSWORD +
+            ZoomMeetingOptions.NO_TEXT_MEETING_ID +
+            ZoomMeetingOptions.NO_BUTTON_PARTICIPANTS,
+      );
 
       var zoom = ZoomView();
       zoom.initZoom(zoomOptions).then((results) {
@@ -208,7 +213,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
     }
 
     String zoomAccessTokenZAK =
-        'eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6InVvTlNtOEVNUjgtMWV5TDlaMk5Td3ciLCJpc3MiOiJ3ZWIiLCJzayI6IjAiLCJzdHkiOjEwMCwid2NkIjoiYXcxIiwiY2x0IjowLCJleHAiOjE2Njg3NzI3MTEsImlhdCI6MTY2ODc2NTUxMSwiYWlkIjoiZkxXTUtmdVRRSGFlSkl3Mml2SWdkZyIsImNpZCI6IiJ9.H49tXMDHDhfYG3N4ssd4lx3XUX0iAY9PEgNRyrs7uUA';
+        'eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6InVvTlNtOEVNUjgtMWV5TDlaMk5Td3ciLCJpc3MiOiJ3ZWIiLCJzayI6IjAiLCJzdHkiOjEwMCwid2NkIjoiYXcxIiwiY2x0IjowLCJleHAiOjE2Njk3MjE5NDIsImlhdCI6MTY2OTcxNDc0MiwiYWlkIjoiZkxXTUtmdVRRSGFlSkl3Mml2SWdkZyIsImNpZCI6IiJ9.GekOT4qEYBAN4MRApEdHJfNdHj7hbKAuz-GVcQJdYso';
     ZoomOptions zoomOptions = ZoomOptions(
       domain: "zoom.us",
       appKey: "4P0YpbhiPAYcdNw4YHezmjYaGtsdXUZRSsJa", //API KEY FROM ZOOM -- SDK KEY
@@ -216,21 +221,26 @@ class _MeetingWidgetState extends State<MeetingWidget> {
     );
     debugPrint('ZOOMOPTIONS: ${zoomOptions.appKey}');
     var meetingOptions = ZoomMeetingOptions(
-        meetingId: "5740397058" /* meetingIdController.text */,
-        // meetingPassword: "R3hUVHNBanN3ZjlEdE9kZ3RmRmMxdz09" /* meetingPasswordController.text */,
-        userId: 'ezlbhse@scpulse.com', //pass host email for zoom
-        displayName: "RAJ",
-        userPassword: 'Raj@1997', //pass host password for zoom
-        disableDialIn: "false",
-        disableDrive: "false",
-        disableInvite: "false",
-        disableShare: "false",
-        zoomAccessToken: zoomAccessTokenZAK,
-        zoomToken: zoomAccessTokenZAK,
-        disableTitlebar: "false",
-        viewOptions: "true",
-        noAudio: "false",
-        noDisconnectAudio: "false");
+      meetingId: "5740397058" /* meetingIdController.text */,
+      // meetingPassword: "R3hUVHNBanN3ZjlEdE9kZ3RmRmMxdz09" /* meetingPasswordController.text */,
+      userId: 'ezlbhse@scpulse.com', //pass host email for zoom
+      displayName: "RAJ",
+      userPassword: 'Raj@1997', //pass host password for zoom
+      disableDialIn: "false",
+      disableDrive: "false",
+      disableInvite: "false",
+      disableShare: "false",
+      zoomAccessToken: zoomAccessTokenZAK,
+      zoomToken: zoomAccessTokenZAK,
+      disableTitlebar: "false",
+      viewOptions: "true",
+      noAudio: "false",
+      noDisconnectAudio: "false",
+      meetingViewOptions: ZoomMeetingOptions.NO_TEXT_PASSWORD +
+          ZoomMeetingOptions.NO_TEXT_MEETING_ID +
+          ZoomMeetingOptions.NO_BUTTON_PARTICIPANTS +
+          ZoomMeetingOptions.NO_BUTTON_MORE,
+    );
 
     var zoom = ZoomView();
     zoom.initZoom(zoomOptions).then((results) {

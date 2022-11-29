@@ -42,7 +42,7 @@ flutter:
         package: com.wv.flutter_zoom
         pluginClass: FlutterZoomSdkPlugin
       ios:
-        pluginClass: FlutterZoomSdkPlugin
+        pluginClass: FlutterZoomPlugin
       web:
         pluginClass: ZoomViewWeb
         fileName: flutter_zoom_web.dart
