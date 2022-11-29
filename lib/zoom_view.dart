@@ -71,6 +71,7 @@ class ZoomView extends ZoomPlatform {
     optionMap.putIfAbsent("userId", () => options.userId);
     optionMap.putIfAbsent("userPassword", () => options.userPassword);
     optionMap.putIfAbsent("zoomAccessToken", () => options.zoomAccessToken);
+    optionMap.putIfAbsent("displayName", () => options.displayName);
     optionMap.putIfAbsent("zoomToken", () => options.zoomToken);
     optionMap.putIfAbsent("meetingId", () => options.meetingId);
     optionMap.putIfAbsent("disableDialIn", () => options.disableDialIn);

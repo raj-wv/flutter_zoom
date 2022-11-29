@@ -190,11 +190,11 @@ class ZoomMeetingOptions {
   /// JWT API Signature For Web Only
 
   ZoomMeetingOptions({
-    this.userId,
-    this.userPassword,
-    this.displayName,
-    this.meetingId,
-    this.meetingPassword,
+    this.userId='',
+    this.userPassword='',
+    this.displayName='',
+    this.meetingId='',
+    this.meetingPassword='',
     this.disableDialIn,
     this.disableDrive,
     this.disableInvite,
@@ -203,10 +203,10 @@ class ZoomMeetingOptions {
     this.noDisconnectAudio,
     this.viewOptions,
     this.noAudio,
-    this.zoomToken,
-    this.zoomAccessToken,
-    this.jwtAPIKey,
-    this.jwtSignature,
+    this.zoomToken='',
+    this.zoomAccessToken='',
+    this.jwtAPIKey='',
+    this.jwtSignature='',
   });
 }
 
