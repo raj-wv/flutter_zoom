@@ -252,10 +252,11 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
     opts.no_dial_in_via_phone = parseBoolean(options, "disableDialIn");
     opts.no_disconnect_audio = parseBoolean(options, "noDisconnectAudio");
     opts.no_audio = parseBoolean(options, "noAudio");
-    boolean view_options = parseBoolean(options, "viewOptions");
+    opts.meeting_views_options = parseInt(options, "meetingViewOptions", 0); 
+    /* boolean view_options = parseBoolean(options, "viewOptions");
     if(view_options){
       opts.meeting_views_options = MeetingViewsOptions.NO_TEXT_MEETING_ID + MeetingViewsOptions.NO_TEXT_PASSWORD+MeetingViewsOptions.NO_BUTTON_PARTICIPANTS;
-    }
+    } */
 
     JoinMeetingParams params = new JoinMeetingParams();
 
@@ -294,10 +295,11 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
     opts.no_disconnect_audio = parseBoolean(options, "noDisconnectAudio");
     opts.no_audio = parseBoolean(options, "noAudio");
     opts.no_titlebar = parseBoolean(options, "disableTitlebar");
-    boolean view_options = parseBoolean(options, "viewOptions");
+    opts.meeting_views_options = parseInt(options, "meetingViewOptions", 0); 
+    /* boolean view_options = parseBoolean(options, "viewOptions");
     if(view_options){
       opts.meeting_views_options = MeetingViewsOptions.NO_TEXT_MEETING_ID + MeetingViewsOptions.NO_TEXT_PASSWORD + MeetingViewsOptions.NO_BUTTON_PARTICIPANTS;
-    }
+    } */
 
       StartMeetingParamsWithoutLogin params = new StartMeetingParamsWithoutLogin();
       params.meetingNo = options.get("meetingId");
@@ -404,6 +406,10 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
   //Helper Function for parsing string to boolean value
   private boolean parseBoolean(Map<String, String> options, String property) {
     return options.get(property) != null && Boolean.parseBoolean(options.get(property));
+  }
+  
+  private int parseInt(Map<String, String> options, String property, int defaultValue) {
+        return options.get(property) == null ? defaultValue : Integer.parseInt(options.get(property));
   }
 
   //Get Meeting Details Programmatically after Starting the Meeting

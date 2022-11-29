@@ -58,9 +58,12 @@ class ZoomView extends ZoomPlatform {
     optionMap.putIfAbsent("disableShare", () => options.disableShare);
     optionMap.putIfAbsent("disableTitlebar", () => options.disableTitlebar);
     optionMap.putIfAbsent("noDisconnectAudio", () => options.noDisconnectAudio);
-    optionMap.putIfAbsent("viewOptions", () => options.viewOptions);
+    // optionMap.putIfAbsent("viewOptions", () => options.viewOptions);
     optionMap.putIfAbsent("noAudio", () => options.noAudio);
-
+    if (options.meetingViewOptions != null) {
+      optionMap.putIfAbsent("meetingViewOptions", () => options.meetingViewOptions!.toString());
+    }
+    
     return await channel.invokeMethod<bool>('join', optionMap).then<bool>((bool? value) => value ?? false);
   }
 
@@ -79,10 +82,13 @@ class ZoomView extends ZoomPlatform {
     optionMap.putIfAbsent("disableInvite", () => options.disableInvite);
     optionMap.putIfAbsent("disableShare", () => options.disableShare);
     optionMap.putIfAbsent("disableTitlebar", () => options.disableTitlebar);
-    optionMap.putIfAbsent("viewOptions", () => options.viewOptions);
+    // optionMap.putIfAbsent("viewOptions", () => options.viewOptions);
     optionMap.putIfAbsent("noDisconnectAudio", () => options.noDisconnectAudio);
     optionMap.putIfAbsent("noAudio", () => options.noAudio);
     optionMap.putIfAbsent("noAudio", () => options.noAudio);
+    if (options.meetingViewOptions != null) {
+      optionMap.putIfAbsent("meetingViewOptions", () => options.meetingViewOptions!.toString());
+    }
 
     return await channel.invokeMethod<List>('login', optionMap).then<List>((List? value) => value ?? List.empty());
   }

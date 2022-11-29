@@ -3,6 +3,18 @@ import UIKit
 import MobileRTC
 
 public class SwiftFlutterZoomPlugin: NSObject, FlutterPlugin,FlutterStreamHandler , MobileRTCMeetingServiceDelegate {
+    struct MeetingViewOptions {
+        static let NO_BUTTON_AUDIO = 2
+        static let NO_BUTTON_LEAVE = 128
+        static let NO_BUTTON_MORE = 16
+        static let NO_BUTTON_PARTICIPANTS = 8
+        static let NO_BUTTON_SHARE = 4
+        static let NO_BUTTON_SWITCH_AUDIO_SOURCE = 512
+        static let NO_BUTTON_SWITCH_CAMERA = 256
+        static let NO_BUTTON_VIDEO = 1
+        static let NO_TEXT_MEETING_ID = 32
+        static let NO_TEXT_PASSWORD = 64
+      }
 
   var authenticationDelegate: AuthenticationDelegate
   var eventSink: FlutterEventSink?
@@ -148,11 +160,41 @@ public class SwiftFlutterZoomPlugin: NSObject, FlutterPlugin,FlutterStreamHandle
                 meetingSettings?.meetingShareHidden = parseBoolean(data: arguments["disableShare"]!, defaultValue: false)
                 meetingSettings?.meetingInviteHidden = parseBoolean(data: arguments["disableDrive"]!, defaultValue: false)
                 meetingSettings?.meetingTitleHidden = parseBoolean(data:arguments["disableTitlebar"]!, defaultValue: false)
-                let viewopts = parseBoolean(data:arguments["viewOptions"]!, defaultValue: false)
+                /* let viewopts = parseBoolean(data:arguments["viewOptions"]!, defaultValue: false)
                 if viewopts {
                     meetingSettings?.meetingTitleHidden = true
                     meetingSettings?.meetingPasswordHidden = true
+                } */
+                if  arguments["meetingViewOptions"] != nil{
+                let meetingViewOptions = parseInt(data: arguments["meetingViewOptions"]!, defaultValue: 0)
+                if (meetingViewOptions & MeetingViewOptions.NO_BUTTON_AUDIO) != 0 {
+                    meetingSettings?.meetingAudioHidden = true
                 }
+                if (meetingViewOptions & MeetingViewOptions.NO_BUTTON_LEAVE) != 0 {
+                    meetingSettings?.meetingLeaveHidden = true
+                }
+                if (meetingViewOptions & MeetingViewOptions.NO_BUTTON_MORE) != 0 {
+                    meetingSettings?.meetingMoreHidden = true
+                }
+                if (meetingViewOptions & MeetingViewOptions.NO_BUTTON_PARTICIPANTS) != 0 {
+                    meetingSettings?.meetingParticipantHidden = true
+                }
+                if (meetingViewOptions & MeetingViewOptions.NO_BUTTON_SWITCH_AUDIO_SOURCE) != 0 {
+                   
+                }
+                if (meetingViewOptions & MeetingViewOptions.NO_BUTTON_SWITCH_CAMERA) != 0 {
+                    
+                }
+                if (meetingViewOptions & MeetingViewOptions.NO_BUTTON_VIDEO) != 0 {
+                    meetingSettings?.meetingVideoHidden = true
+                }
+                if (meetingViewOptions & MeetingViewOptions.NO_TEXT_MEETING_ID) != 0 {
+                    meetingSettings?.meetingTitleHidden = true
+                }
+                if (meetingViewOptions & MeetingViewOptions.NO_TEXT_PASSWORD) != 0 {
+                    meetingSettings?.meetingPasswordHidden = true
+                }
+            }
                 
                 //Setting up Join Meeting parameter
                 let joinMeetingParameters = MobileRTCMeetingJoinParam()
@@ -196,12 +238,42 @@ public class SwiftFlutterZoomPlugin: NSObject, FlutterPlugin,FlutterStreamHandle
                     meetingSettings?.setMuteAudioWhenJoinMeeting(parseBoolean(data: arguments["noAudio"]!, defaultValue: false))
                     meetingSettings?.meetingShareHidden = parseBoolean(data: arguments["disableShare"]!, defaultValue: false)
                     meetingSettings?.meetingInviteHidden = parseBoolean(data: arguments["disableDrive"]!, defaultValue: false)
-                    let viewopts = parseBoolean(data:arguments["viewOptions"]!, defaultValue: false)
+                    /* let viewopts = parseBoolean(data:arguments["viewOptions"]!, defaultValue: false)
                     if viewopts {
                         meetingSettings?.meetingTitleHidden = true
                         meetingSettings?.meetingPasswordHidden = true
                         meetingSettings?.meetingParticipantHidden = true
-                    }
+                    } */
+                    if  arguments["meetingViewOptions"] != nil{
+                let meetingViewOptions = parseInt(data: arguments["meetingViewOptions"]!, defaultValue: 0)   
+                if (meetingViewOptions & MeetingViewOptions.NO_BUTTON_AUDIO) != 0 {
+                    meetingSettings?.meetingAudioHidden = true
+                }
+                if (meetingViewOptions & MeetingViewOptions.NO_BUTTON_LEAVE) != 0 {
+                    meetingSettings?.meetingLeaveHidden = true
+                }
+                if (meetingViewOptions & MeetingViewOptions.NO_BUTTON_MORE) != 0 {
+                    meetingSettings?.meetingMoreHidden = true
+                }
+                if (meetingViewOptions & MeetingViewOptions.NO_BUTTON_PARTICIPANTS) != 0 {
+                    meetingSettings?.meetingParticipantHidden = true
+                }
+                if (meetingViewOptions & MeetingViewOptions.NO_BUTTON_SWITCH_AUDIO_SOURCE) != 0 {
+                   
+                }
+                if (meetingViewOptions & MeetingViewOptions.NO_BUTTON_SWITCH_CAMERA) != 0 {
+                    
+                }
+                if (meetingViewOptions & MeetingViewOptions.NO_BUTTON_VIDEO) != 0 {
+                    meetingSettings?.meetingVideoHidden = true
+                }
+                if (meetingViewOptions & MeetingViewOptions.NO_TEXT_MEETING_ID) != 0 {
+                    meetingSettings?.meetingTitleHidden = true
+                }
+                if (meetingViewOptions & MeetingViewOptions.NO_TEXT_PASSWORD) != 0 {
+                    meetingSettings?.meetingPasswordHidden = true
+                }
+            }
                     
                     //Setting up Start Meeting parameter
                     let startMeetingParameters = MobileRTCMeetingStartParam4WithoutLoginUser()
@@ -243,12 +315,12 @@ public class SwiftFlutterZoomPlugin: NSObject, FlutterPlugin,FlutterStreamHandle
                     meetingSettings?.setMuteAudioWhenJoinMeeting(parseBoolean(data: arguments["noAudio"]!, defaultValue: false))
                     meetingSettings?.meetingShareHidden = parseBoolean(data: arguments["disableShare"]!, defaultValue: false)
                     meetingSettings?.meetingInviteHidden = parseBoolean(data: arguments["disableDrive"]!, defaultValue: false)
-                    let viewopts = parseBoolean(data:arguments["viewOptions"]!, defaultValue: false)
-                    if viewopts {
+                    /* let viewopts = parseBoolean(data:arguments["viewOptions"]!, defaultValue: false)
+                    if  viewopts {
                         meetingSettings?.meetingTitleHidden = true
                         meetingSettings?.meetingPasswordHidden = true
                         meetingSettings?.meetingParticipantHidden = true
-                    }
+                    } */
                     
                     //Setting up Start Meeting parameter
                     let startMeetingParameters = MobileRTCMeetingStartParam4LoginlUser()

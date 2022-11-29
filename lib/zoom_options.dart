@@ -137,6 +137,17 @@ class ZoomOptions {
 
 /// Basic Zoom Meeting Options required for plugin (WEB, iOS, Android)
 class ZoomMeetingOptions {
+  static const NO_BUTTON_AUDIO = 2;
+  static const NO_BUTTON_LEAVE = 128;
+  static const NO_BUTTON_MORE = 16;
+  static const NO_BUTTON_PARTICIPANTS = 8;
+  static const NO_BUTTON_SHARE = 4;
+  static const NO_BUTTON_SWITCH_AUDIO_SOURCE = 512;
+  static const NO_BUTTON_SWITCH_CAMERA = 256;
+  static const NO_BUTTON_VIDEO = 1;
+  static const NO_TEXT_MEETING_ID = 32;
+  static const NO_TEXT_PASSWORD = 64;
+
   String? userId;
 
   /// Username For Join Meeting & Host Email For Start Meeting
@@ -188,6 +199,7 @@ class ZoomMeetingOptions {
   String? jwtSignature;
 
   /// JWT API Signature For Web Only
+  int? meetingViewOptions;
 
   ZoomMeetingOptions({
     this.userId='',
@@ -207,6 +219,7 @@ class ZoomMeetingOptions {
     this.zoomAccessToken='',
     this.jwtAPIKey='',
     this.jwtSignature='',
+    this.meetingViewOptions,
   });
 }
 
