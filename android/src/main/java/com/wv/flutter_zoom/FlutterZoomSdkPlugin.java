@@ -240,6 +240,8 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
       result.success(false);
       return;
     }else{
+       boolean hideMeetingInviteUrl = parseBoolean(options, "hideMeetingInviteUrl");
+      ZoomSDK.getInstance().getZoomUIService().hideMeetingInviteUrl(hideMeetingInviteUrl);
     }
 
     MeetingService meetingService = zoomSDK.getMeetingService();
@@ -278,6 +280,9 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
       System.out.println("Not initialized!!!!!!");
       sendReply(Arrays.asList("SDK ERROR", "001"));
       return;
+    }else {
+      boolean hideMeetingInviteUrl = parseBoolean(options, "hideMeetingInviteUrl");
+      ZoomSDK.getInstance().getZoomUIService().hideMeetingInviteUrl(hideMeetingInviteUrl);
     }
 
     /* if(!zoomSDK.isLoggedIn()){

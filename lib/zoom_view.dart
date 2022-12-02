@@ -58,6 +58,7 @@ class ZoomView extends ZoomPlatform {
     optionMap.putIfAbsent("disableShare", () => options.disableShare);
     optionMap.putIfAbsent("disableTitlebar", () => options.disableTitlebar);
     optionMap.putIfAbsent("noDisconnectAudio", () => options.noDisconnectAudio);
+    optionMap.putIfAbsent("hideMeetingInviteUrl", () => options.hideMeetingInviteUrl);
     // optionMap.putIfAbsent("viewOptions", () => options.viewOptions);
     optionMap.putIfAbsent("noAudio", () => options.noAudio);
     if (options.meetingViewOptions != null) {
@@ -85,7 +86,7 @@ class ZoomView extends ZoomPlatform {
     // optionMap.putIfAbsent("viewOptions", () => options.viewOptions);
     optionMap.putIfAbsent("noDisconnectAudio", () => options.noDisconnectAudio);
     optionMap.putIfAbsent("noAudio", () => options.noAudio);
-    optionMap.putIfAbsent("noAudio", () => options.noAudio);
+    optionMap.putIfAbsent("hideMeetingInviteUrl", () => options.hideMeetingInviteUrl);
     if (options.meetingViewOptions != null) {
       optionMap.putIfAbsent("meetingViewOptions", () => options.meetingViewOptions!.toString());
     }
