@@ -132,7 +132,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
       var meetingOptions = ZoomMeetingOptions(
         userId: 'username',
 
-        /// pass username for join meeting only --- Any name eg:- EVILRATT.
+        /// pass username for join meeting only --- Any name eg:- WV.
         meetingId: "5740397058" /* meetingIdController.text */,
 
         /// pass meeting id for join meeting only
@@ -213,7 +213,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
     }
 
     String zoomAccessTokenZAK =
-        'eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6InVvTlNtOEVNUjgtMWV5TDlaMk5Td3ciLCJpc3MiOiJ3ZWIiLCJzayI6IjAiLCJzdHkiOjEwMCwid2NkIjoiYXcxIiwiY2x0IjowLCJleHAiOjE2Njk5NzkxMjIsImlhdCI6MTY2OTk3MTkyMiwiYWlkIjoiZkxXTUtmdVRRSGFlSkl3Mml2SWdkZyIsImNpZCI6IiJ9.UCv1oWd2Y7jJjtMdjOy3_rC5SnvNblt3uLDd7SU0sd0';
+        'eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6InVvTlNtOEVNUjgtMWV5TDlaMk5Td3ciLCJpc3MiOiJ3ZWIiLCJzayI6IjAiLCJzdHkiOjEwMCwid2NkIjoiYXcxIiwiY2x0IjowLCJleHAiOjE2NzExMTE0NDMsImlhdCI6MTY3MTEwNDI0MywiYWlkIjoiZkxXTUtmdVRRSGFlSkl3Mml2SWdkZyIsImNpZCI6IiJ9.lctRrzvEv-0TT8nB2khUqMxCZvQV3CRE9Lq1aaXnswc';
     ZoomOptions zoomOptions = ZoomOptions(
       domain: "zoom.us",
       appKey: "4P0YpbhiPAYcdNw4YHezmjYaGtsdXUZRSsJa", //API KEY FROM ZOOM -- SDK KEY
@@ -318,7 +318,7 @@ class _MeetingWidgetState extends State<MeetingWidget> {
       appSecret: "bT7N61pQzaLXU6VLj9TVl7eYuLbqAiB0KAdb", //API SECRET FROM ZOOM -- SDK SECRET
     );
     var meetingOptions = ZoomMeetingOptions(
-        userId: 'evilrattdeveloper@gmail.com', //pass host email for zoom
+        userId: 'wvdeveloper@gmail.com', //pass host email for zoom
         userPassword: 'Dlinkmoderm0641', //pass host password for zoom
         meetingId: meetingIdController.text, //
         disableDialIn: "false",

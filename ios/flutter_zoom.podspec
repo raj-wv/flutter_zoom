@@ -2,12 +2,6 @@
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
 # Run `pod lib lint flutter_zoom.podspec` to validate before publishing.
 #
-
-
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint flutter_zoom_sdk.podspec` to validate before publishing.
-#
 Pod::Spec.new do |s|
   s.name             = 'flutter_zoom'
   s.version          = '0.0.1'
@@ -15,9 +9,9 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
 A new flutter plugin project.
                        DESC
-  s.homepage         = 'http://evilrattechnologies.com'
+  s.homepage         = 'http://wvtechnologies.com'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'ceo@evilrattechnologies.com' }
+  s.author           = { 'Your Company' => 'ceo@wvtechnologies.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'

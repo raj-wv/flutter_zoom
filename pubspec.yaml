@@ -40,7 +40,7 @@ flutter:
     platforms:
       android:
         package: com.wv.flutter_zoom
-        pluginClass: FlutterZoomSdkPlugin
+        pluginClass: FlutterZoomPlugin
       ios:
         pluginClass: FlutterZoomPlugin
       web:
