@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.evilratt.flutter_zoom_sdk_example">
+    package="com.wv.flutter_zoom_example">
    <application
-        android:label="flutter_zoom_sdk_example"
+        android:label="flutter_zoom_example"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name="io.flutter.embedding.android.FlutterActivity"

@@ -34,7 +34,7 @@ import us.zoom.sdk.ZoomSDKInitializeListener;
 import io.flutter.plugin.common.MethodChannel.Result;
 
 /** FlutterZoomPlugin */
-public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler, ActivityAware {
+public class FlutterZoomPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler, ActivityAware {
   Activity activity;
   private Result pendingResult;
 
@@ -128,7 +128,7 @@ public class FlutterZoomSdkPlugin implements FlutterPlugin, MethodChannel.Method
     initParams.enableLog = true;
 
     final InMeetingNotificationHandle handle= (context, intent) -> {
-      intent = new Intent(context, FlutterZoomSdkPlugin.class);
+      intent = new Intent(context, FlutterZoomPlugin.class);
       intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
       if(context == null) {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

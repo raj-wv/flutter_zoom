@@ -1,11 +1,11 @@
 {
-    "name": "flutter_zoom_sdk_example",
-    "short_name": "flutter_zoom_sdk_example",
+    "name": "flutter_zoom_example",
+    "short_name": "flutter_zoom_example",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Demonstrates how to use the flutter_zoom_sdk plugin.",
+    "description": "Demonstrates how to use the flutter_zoom plugin.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

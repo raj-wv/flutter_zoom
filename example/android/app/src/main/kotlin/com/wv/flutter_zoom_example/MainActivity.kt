@@ -1,4 +1,4 @@
-package com.evilratt.flutter_zoom_sdk_example
+package com.wv.flutter_zoom_example
 
 import io.flutter.embedding.android.FlutterActivity
 

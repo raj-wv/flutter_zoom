@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'meeting_screen.dart';
 
-// for complete example see https://github.com/evilrat/flutter_zoom_sdk/tree/master/example
+// for complete example see https://github.com/evilrat/flutter_zoom/tree/master/example
 
 void main() => runApp(const ExampleApp());
 
